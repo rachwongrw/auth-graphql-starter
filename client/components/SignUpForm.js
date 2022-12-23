@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import { graphql } from "react-apollo";
-import mutation from "../mutations/Login";
 import AuthForm from "./AuthForm";
 import query from "../queries/CurrentUser";
-class LoginForm extends Component {
+import mutation from "../mutations/Signup";
+
+class SignupForm extends Component {
   constructor(props) {
     super(props);
     this.state = { errors: [] };
@@ -22,7 +23,7 @@ class LoginForm extends Component {
   render() {
     return (
       <div>
-        <h3>Login</h3>
+        <h3>Sign Up</h3>
         <AuthForm
           onSubmit={this.onSubmit.bind(this)}
           errors={this.state.errors}
@@ -32,4 +33,4 @@ class LoginForm extends Component {
   }
 }
 
-export default graphql(mutation)(LoginForm);
+export default graphql(mutation)(SignupForm);
