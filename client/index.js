@@ -6,6 +6,7 @@ import { Router, hashHistory, Route } from "react-router";
 import App from "./components/App";
 import Dashboard from "./components/Dashboard";
 import LoginForm from "./components/LoginForm";
+import RequireAuth from "./components/requireAuth";
 import SignUpForm from "./components/SignUpForm";
 
 //networkInterface - in charge of making network reqs to the backend server. making custom one so we can also ask it to send cookies along with reqs
@@ -28,7 +29,7 @@ const Root = () => {
         <Route path="/" component={App}>
           <Route path="/login" component={LoginForm} />
           <Route path="/signup" component={SignUpForm} />
-          <Route path="/dashboard" component={Dashboard} />
+          <Route path="/dashboard" component={RequireAuth(Dashboard)} />
         </Route>
       </Router>
     </ApolloProvider>
